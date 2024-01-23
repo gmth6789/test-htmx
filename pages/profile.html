@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line login</title>
+</head>
+
+<body>
+    <img src="#" id="userPhoto" style="height: 80px;"><br />
+    <b>User ID:</b> <span id="userId"></span><br />
+    <b>Display Name:</b> <span id="userName"></span><br />
+    <a href="index.html">Log out</a>
+    <script>
+        var lineProfile = JSON.parse(localStorage.getItem("lineProfile"));
+        if (lineProfile != null) {
+            document.getElementById('userId').innerHTML = lineProfile.userId;
+            document.getElementById('userName').innerHTML = lineProfile.userName;
+            document.getElementById('userPhoto').src = lineProfile.userPhoto;
+        }else{
+            window.location.replace('index.html');
+        }
+        console.log(lineProfile);
+
+    </script>
+</body>
+
+</html>
